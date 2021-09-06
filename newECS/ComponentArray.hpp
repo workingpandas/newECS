@@ -95,7 +95,10 @@ namespace ecs
 		
 		// InsertComponent components
 		(InsertComponent<T_ARGS>(entity, component), ...);
-				
+
+		// Insert blank entity
+		InsertComponent<EntityC>(EntityC{.m_EntityID = entity->m_EntityID});
+		
 		// UpdateComponent maps
 		m_EntityGetIndex[entity->m_EntityID] = m_LastIndex;
 		m_IndexGetEntity[m_LastIndex] = entity->m_EntityID;

@@ -3,82 +3,26 @@
 #include "ECS_Utilities.h"
 namespace ecs
 {
+	// Example component
 	struct velocity
 	{
+		// All components need to have an info_v
+		// Input name or GUID if you want
+		// ComponentMgr will overwrite them if they are leave blank
 		constexpr static auto info_v = ComponentInfo{
 			.m_pName = "velocity"
 		};
 
+		// Data members
 		float x = 1, y = 2, z = 3;
 	};
 
-	struct velocity1
-	{
-		constexpr static auto info_v = ComponentInfo{
-			.m_pName = "velocity1"
-		};
-	};
-
-	//struct velocity2
-	//{
-	//	constexpr static auto info_v = ecs::GenerateInfo<velocity2>;
-	//};
-
-	//struct velocity3
-	//{
-	//	constexpr static auto info_v = ecs::GenerateInfo<velocity3>;
-	//};
-
-	//struct velocity4
-	//{
-	//	constexpr static auto info_v = ecs::GenerateInfo<velocity4>;
-	//};
-
-	//struct velocity5
-	//{
-	//	constexpr static auto info_v = ecs::GenerateInfo<velocity5>;
-	//};
-
-	//struct velocity6
-	//{
-	//	constexpr static auto info_v = ecs::GenerateInfo<velocity6>;
-	//};
-
-	//struct velocity7
-	//{
-	//	constexpr static auto info_v = ecs::GenerateInfo<velocity7>;
-	//};
-
-	//struct velocity8
-	//{
-	//	constexpr static auto info_v = ecs::GenerateInfo<velocity8>;
-	//};
-
-	//struct velocity9
-	//{
-	//	constexpr static auto info_v = ecs::GenerateInfo<velocity9>;
-	//};
-
-	//struct velocity10
-	//{
-	//	constexpr static auto info_v = ecs::GenerateInfo<velocity10>;
-	//};
-
-	//struct velocity11
-	//{
-	//	constexpr static auto info_v = ecs::GenerateInfo<velocity11>;
-	//};
-
-	//struct velocity12
-	//{
-	//	constexpr static auto info_v = ecs::GenerateInfo<velocity12>;
-	//};
-	//
 	struct position
 	{
 		constexpr static auto info_v = ComponentInfo{
 			.m_pName = "position"
 		};
+		
 		float x = 0.0f, y = 100.0f;
 	};
 

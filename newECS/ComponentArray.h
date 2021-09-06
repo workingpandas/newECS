@@ -14,38 +14,38 @@ namespace ecs
 	public:
 		// Create component array
 		template<typename ...T_ARGS>
-		void Init(ComponentMgr* mgr);
+		void							Init(ComponentMgr* mgr);
 
 		// Get component by index
 		template<typename T_COMPONENT>
-		T_COMPONENT& GetByIndex(ComponentIndex index);
+		T_COMPONENT&					GetByIndex(ComponentIndex index);
 
 		// Get component by entity
 		template<typename T_COMPONENT>
-		T_COMPONENT& GetByEntity(EntityP& entity);
+		T_COMPONENT&					GetByEntity(EntityP& entity);
 
 		// Insert empty components
-		void InsertEmpty(EntityP& entity);
+		void							InsertEmpty(EntityP& entity);
 
 		/////////////////////////////////////////////////////////////////////////////////////////
 		// Insert single component
 		template<typename T_COMPONENT>
-		void InsertComponent(EntityP& entity, T_COMPONENT& component);
+		void							InsertComponent(EntityP& entity, T_COMPONENT& component);
 
 		// Insert components; Safe; Will ensure the components passed in matches m_Component
 		template<typename ...T_ARGS>
-		void InsertComponent(EntityP& entity, T_ARGS... component);
+		void							InsertComponent(EntityP& entity, T_ARGS... component);
 		/////////////////////////////////////////////////////////////////////////////////////////
 
 		// RemoveEntity all components from entity
-		void RemoveEntity(EntityMgr* mgr, EntityP& entity);
+		void							RemoveEntity(EntityMgr* mgr, EntityP& entity);
 
 		// Clone the components for an entity
-		void Clone(EntityP& owner, EntityP& clone);
+		void							Clone(EntityP& owner, EntityP& clone);
 	
 	//private:
 		// Copy all Dst's component data to Src
-		void Copy(uint DstIndex, uint SrcIndex);
+		void							Copy(uint DstIndex, uint SrcIndex);
 		
 		// List of available index
 		uint												m_LastIndex = 0;

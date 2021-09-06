@@ -18,30 +18,30 @@ namespace ecs
 		Archetype(EntityMgr* entity_mgr);
 
 		template<typename ...T_ARGS>
-		void Init(ComponentMgr* component_mgr);
+		void							Init(ComponentMgr* component_mgr);
 
 		template<typename T_FUNC>
-		void CreateEntity(const uint& amount, T_FUNC&& Func);
+		void							CreateEntity(const uint& amount, T_FUNC&& Func);
 
-		void DestroyEntity(EntityP& entity);
+		void							DestroyEntity(EntityP& entity);
 
-		[[nodiscard]]const Bits& GetBits() const;
+		[[nodiscard]]const Bits&		GetBits() const;
 	
 		template<typename T_FUNC>
-		void ForEachComponent(T_FUNC&& Func);
+		void							ForEachComponent(T_FUNC&& Func);
 		
 		template<typename T_COMPONENT>
-		T_COMPONENT& GetComponent(EntityP& entity);
+		T_COMPONENT&					GetComponent(EntityP& entity);
 
-		decltype(auto) GetAllEntity();
+		decltype(auto)					GetAllEntity();
 
 	//private:
-		GUID									m_Guid;
-		uint									m_Count;
-		Bits									m_Bits;
-		EntityMgr*								m_pEntityMgr;
-		ComponentArrayP							m_pComponents;
-		std::vector<EntityID>					m_Entities;
+		GUID							m_Guid;
+		uint							m_Count;
+		Bits							m_Bits;
+		EntityMgr*						m_pEntityMgr;
+		ComponentArrayP					m_pComponents;
+		std::vector<EntityID>			m_Entities;
 	};
 }
 #include "Archetype.hpp"

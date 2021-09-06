@@ -14,13 +14,13 @@ namespace ecs
 		EntityMgr();
 
 		// Create an entity
-		[[nodiscard]]EntityP& CreateEntity();
+		[[nodiscard]]EntityP&					CreateEntity();
 
 		// Push entity back to pool & reset the values
-		void DestroyEntity(EntityP entity);
+		void									DestroyEntity(EntityP entity);
 
 		// Get an entity using EntityID
-		[[nodiscard]]EntityP& GetEntity(EntityID id);
+		[[nodiscard]]EntityP&					GetEntity(EntityID id);
 
 	//private:
 		// Pool of entities

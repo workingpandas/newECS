@@ -16,49 +16,57 @@ namespace ecs
 	{
 		/* System for user to overwrite */
 		//When system is created
-		void						OnCreate()			{}
+		void							OnCreate()			{}
 
 		// Before update
-		void						OnPreUpdate()		{}
+		void							OnPreUpdate()		{}
 
 		// Update
-		void						OnUpdate()			{}
+		void							OnUpdate()			{}
 
 		// Post update
-		void						OnPostUpdate()		{}
+		void							OnPostUpdate()		{}
 
 		// Pause
-		void						OnPause()			{}
+		void							OnPause()			{}
 
-		// Pause
-		void						OnDestroy()			{}
+		// When system is destroyed
+		void							OnDestroy()			{}
 		
 		// Run all function; Don't need to override this function
-		virtual void				Run(bool pause)		{}
+		virtual void					Run(bool pause)		{}
 
 		/* UTILITIES FUNCTIONS */
 		template<typename T_FUNC>
-		void						ForEach(std::vector<std::shared_ptr<Archetype>>& archetypes, T_FUNC&& Func);
+		// For each archetype, run the lambda function that will affect their components
+		void							ForEach(std::vector<std::shared_ptr<Archetype>>& archetypes, T_FUNC&& Func);
 
+		// Get or create an archetype
 		template<typename... T_ARGS>
-		decltype(auto)				GetOrCreateArchetype();
+		decltype(auto)					GetOrCreateArchetype();
 
-		void						DestroyEntity(EntityID entity);
+		// Destroy an entity by EntityID
+		void							DestroyEntity(EntityID entity);
 
-		void						DestroyEntity(EntityC& entity);
+		// Destroy an entity by component
+		void							DestroyEntity(EntityC& entity);
 
-		decltype(auto)				Search(Query& query);
+		// Search for archetype that satisfied the query
+		decltype(auto)					Search(Query& query);
 
-		bool						GetPauseState() const;
+		// Get pause state
+		bool							GetPauseState() const;
 
-		void			SetPause(bool state);
+		// Set pause state
+		void							SetPause(bool state);
 
+		// Get system ptr
 		template<typename T_SYSTEM>
-		decltype(auto)	GetSystem();
+		decltype(auto)					GetSystem();
 		
 		// Managers
-		ArchetypeMgr*	m_ArchetypeMgr		= nullptr;
-		ECS*			m_ecs				= nullptr;
+		ArchetypeMgr*					m_ArchetypeMgr		= nullptr;
+		ECS*							m_ecs				= nullptr;
 	};
 }
 #include "SystemBase.hpp"

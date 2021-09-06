@@ -17,19 +17,19 @@ namespace ecs
 		using SystemList = std::pair<GUID, SystemP>;
 
 		/* Functions */
-		void Init(ECS* ecs, ArchetypeMgr* mgr);
+		void							Init(ECS* ecs, ArchetypeMgr* mgr);
 
 		template<typename... T_ARGS>
-		void RegisterSystem();
+		void							RegisterSystem();
 		
 		template<typename T_SYSTEM>
-		SystemP GetSystem();
+		SystemP							GetSystem();
 
-		void Run();
+		void							Run();
 
-		void SetPause(bool state);
+		void							SetPause(bool state);
 
-		bool GetState() const;
+		bool							GetState() const;
 	
 //	private:
 		template<typename T_SYSTEM>

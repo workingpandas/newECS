@@ -32,7 +32,7 @@ namespace ecs
 		m_DestroyEntities.push_back(entity);
 	}
 
-	inline EntityP ECS::GetEntity(EntityID id)
+	inline EntityP& ECS::GetEntity(EntityID id)
 	{
 		return m_pEntityMgr->GetEntity(id);
 	}

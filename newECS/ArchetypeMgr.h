@@ -16,19 +16,19 @@ namespace ecs
 	public:
 		using ArchetypeP = std::shared_ptr<Archetype>;
 
-		void Init(EntityMgr* entityMgr, ComponentMgr* componentMgr);
+		void							Init(EntityMgr* entityMgr, ComponentMgr* componentMgr);
 		
 		template<typename ...T_ARGS>
-		ArchetypeP GetOrCreateArchetype();
+		ArchetypeP						GetOrCreateArchetype();
 
-		ArchetypeP FindArchetype(GUID id);
+		ArchetypeP						FindArchetype(GUID id);
 
-		std::vector<ArchetypeP> Search(Query& query);
+		std::vector<ArchetypeP>			Search(Query& query);
 
-		std::vector<EntityP> GetEntities(Query& query);
+		std::vector<EntityP>			GetEntities(Query& query);
 		
 		template<typename T_FUNC>
-		void ForEach(std::vector<ArchetypeP>& archetypes, T_FUNC&& Func);
+		void							ForEach(std::vector<ArchetypeP>& archetypes, T_FUNC&& Func);
 
 //	private:
 		std::unordered_map<GUID, ArchetypeP>	m_ArchetypePool;
